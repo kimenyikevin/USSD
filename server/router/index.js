@@ -1,14 +1,8 @@
-const express = require("express");
+import express from 'express';
+import dotenv from 'dotenv'
 const router = express.Router();
-const dotenv = require("dotenv");
 
 dotenv.config();
-
-// Get authentication
-const credentials = {
-  apiKey: process.env.APIKEY, // use your sandbox app API key for development in the test environment
-  username: process.env.USERNAME // use 'sandbox' for development in the test environment
-};
 
 router.post('*',(req,res) => {
 
@@ -17,29 +11,30 @@ router.post('*',(req,res) => {
     // first level response
     if( text === ""){
         let response = `
-        CON Welcome to my simple USSD app. Select optionns from below
-        1. Take a loan
-        2. Loan Balance
-        3. Check Eligility
+        CON Welcome to student registration. Select optionns from below
+        1. Choose school
+        2. Pay transport 
+        3. Check your registtration information
         `;
     res.send(response);
 
     } else if( text === '1') {
         // buz logic for first level
        let response = `
-       CON CHoose from the options below
-       1. NGN 1000
-       2. NGN 3000
-       3. NGN 5000
-       4. NGN 7000
+       CON Select school you want
+       1. Efotec
+       2. Kagarama
+       3. APR rugunga
        `;
        res.send(response);
 
     } else if(text === '2'){
-        let balance = '5000';
-        let response = `END Your loan balance is -${balance}
-        Please pay up in time.
-        `
+        let response = `
+        CON Select school you want
+        1. Efotec
+        2. Kagarama
+        3. APR rugunga
+        `;
         res.send(response);
 
     } else if(text === '3'){
@@ -71,4 +66,4 @@ router.post('*',(req,res) => {
     }
 });
 
-module.exports = router;
+export default router;
