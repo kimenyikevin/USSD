@@ -7,4 +7,5 @@ dotenv.config();
 
 router.post('*', studentController.createStudent);
 
+
 export default router;
