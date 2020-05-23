@@ -24,7 +24,7 @@ router.post('*',(req,res) => {
        CON Select school you want
        1. Efotec
        2. Kagarama
-       3. APR rugunga
+       3. AP rugunga
        `;
        res.send(response);
 
